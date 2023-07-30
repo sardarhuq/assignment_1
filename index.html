@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment-Mern-4</title>
+</head>
+
+<body>
+  <h1>Discount Calculator</h1>
+  <label for="total_pur_amt">Total Purchased Amount :</label>
+  <input type="number" id="total_pur_amt">
+  <br><br>
+  <input type="button" value="Calculate Discount" onclick="discountCalc()"> <br><br>
+  <label for="discounted_amt">Discounted Amount :</label>
+  <input type="text" id="discounted_amt" readonly><br><br>
+  <label for="total_amt">Total Amount :</label>
+  <input type="text" id="total_amt" readonly><br><br>
+  <label for="discount_amt">Discount Amount :</label>
+  <input type="text" id="discount_amt" readonly>
+  <script type="text/javascript">
+    function discountCalc() {
+      let total_purc_amount = document.getElementById("total_pur_amt").value;
+      let d = 0;
+      if (total_purc_amount < 50 && total_purc_amount > 0) {
+        document.getElementById("discounted_amt").value = "Not Eligible for Discount";
+        document.getElementById("total_amt").value = total_purc_amount;
+        document.getElementById("discount_amt").value = "No Discount available";
+      } else if (total_purc_amount == 50 || total_purc_amount < 100) {
+        d = total_purc_amount * 0.05;
+        document.getElementById("discounted_amt").value = total_purc_amount - d;
+        document.getElementById("total_amt").value = total_purc_amount;
+        document.getElementById("discount_amt").value = d;
+      } else if (total_purc_amount == 100 || total_purc_amount < 200) {
+        d = total_purc_amount * 0.10;
+        document.getElementById("discounted_amt").value = total_purc_amount - d;
+        document.getElementById("total_amt").value = total_purc_amount;
+        document.getElementById("discount_amt").value = d;
+
+      } else if (total_purc_amount >= 200) {
+        d = total_purc_amount * 0.15;
+        document.getElementById("discounted_amt").value = total_purc_amount - d;
+        document.getElementById("total_amt").value = total_purc_amount;
+        document.getElementById("discount_amt").value = d;
+
+      }
+
+    };
+  </script>
+</body>
+
+</html>
