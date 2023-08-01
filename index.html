@@ -1,3 +1,4 @@
+<!-- Assignment # 1 -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,6 +48,99 @@
       }
 
     };
+  </script>
+</body>
+
+</html>
+
+<!-- Assignment # 2 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    var arr1 = [12, 34, 45, 23, 6, 78, 54, 90];
+
+    var evens = arr1.filter(x => x % 2 === 0);
+
+    console.log(evens);
+  </script>
+</body>
+
+</html>
+<!-- Assignment # 3 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script type="text/javascript">
+    tableGenerator();
+    function tableGenerator() {
+      let range = prompt("enter number :");
+      for (let i = 1; i <= 10; i++) {
+
+        let res = i * range;
+        document.write(i + " X " + range + "=" + res + "<br>");
+      }
+    };
+
+  </script>
+
+
+
+</body>
+
+</html>
+<!-- Assignment # 4 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let num = prompt("enter number to see grade :");
+    num = parseInt(num);
+    let output;
+
+    switch (true) {
+      case (num >= 90 && num <= 100):
+        output = "A";
+        break;
+      case (num >= 80 && num < 90):
+        output = "B";
+        break;
+      case (num >= 70 && num < 80):
+        output = "C";
+        break;
+      case (num >= 60 && num < 70):
+        output = "D";
+        break;
+      case (num < 60):
+        output = "F";
+        break;
+      default:
+        document.write("Invalid Entry");
+        break;
+    }
+    document.write(output);
   </script>
 </body>
 
