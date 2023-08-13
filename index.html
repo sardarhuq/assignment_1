@@ -1,147 +1,180 @@
-<!-- Assignment # 1 -->
+<!-- 1. javascript For in loop -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Assignment-Mern-4</title>
-</head>
-
-<body>
-  <h1>Discount Calculator</h1>
-  <label for="total_pur_amt">Total Purchased Amount :</label>
-  <input type="number" id="total_pur_amt">
-  <br><br>
-  <input type="button" value="Calculate Discount" onclick="discountCalc()"> <br><br>
-  <label for="discounted_amt">Discounted Amount :</label>
-  <input type="text" id="discounted_amt" readonly><br><br>
-  <label for="total_amt">Total Amount :</label>
-  <input type="text" id="total_amt" readonly><br><br>
-  <label for="discount_amt">Discount Amount :</label>
-  <input type="text" id="discount_amt" readonly>
-  <script type="text/javascript">
-    function discountCalc() {
-      let total_purc_amount = document.getElementById("total_pur_amt").value;
-      let d = 0;
-      if (total_purc_amount < 50 && total_purc_amount > 0) {
-        document.getElementById("discounted_amt").value = "Not Eligible for Discount";
-        document.getElementById("total_amt").value = total_purc_amount;
-        document.getElementById("discount_amt").value = "No Discount available";
-      } else if (total_purc_amount == 50 || total_purc_amount < 100) {
-        d = total_purc_amount * 0.05;
-        document.getElementById("discounted_amt").value = total_purc_amount - d;
-        document.getElementById("total_amt").value = total_purc_amount;
-        document.getElementById("discount_amt").value = d;
-      } else if (total_purc_amount == 100 || total_purc_amount < 200) {
-        d = total_purc_amount * 0.10;
-        document.getElementById("discounted_amt").value = total_purc_amount - d;
-        document.getElementById("total_amt").value = total_purc_amount;
-        document.getElementById("discount_amt").value = d;
-
-      } else if (total_purc_amount >= 200) {
-        d = total_purc_amount * 0.15;
-        document.getElementById("discounted_amt").value = total_purc_amount - d;
-        document.getElementById("total_amt").value = total_purc_amount;
-        document.getElementById("discount_amt").value = d;
-
-      }
-
-    };
-  </script>
-</body>
-
-</html>
-
-<!-- Assignment # 2 -->
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Assignment-Mern-4-module-3</title>
 </head>
 
 <body>
   <script type="text/javascript">
-    var arr1 = [12, 34, 45, 23, 6, 78, 54, 90];
 
-    var evens = arr1.filter(x => x % 2 === 0);
-
-    console.log(evens);
-  </script>
-</body>
-
-</html>
-<!-- Assignment # 3 -->
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-
-<body>
-
-  <script type="text/javascript">
-    tableGenerator();
-    function tableGenerator() {
-      let range = prompt("enter number :");
-      for (let i = 1; i <= 10; i++) {
-
-        let res = i * range;
-        document.write(i + " X " + range + "=" + res + "<br>");
-      }
+    let userDetails = {
+      name: "sohag",
+      age: 26,
+      city: "dhaka"
     };
 
-  </script>
-
-
-
-</body>
-
-</html>
-<!-- Assignment # 4 -->
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-
-<body>
-  <script>
-    let num = prompt("enter number to see grade :");
-    num = parseInt(num);
-    let output;
-
-    switch (true) {
-      case (num >= 90 && num <= 100):
-        output = "A";
-        break;
-      case (num >= 80 && num < 90):
-        output = "B";
-        break;
-      case (num >= 70 && num < 80):
-        output = "C";
-        break;
-      case (num >= 60 && num < 70):
-        output = "D";
-        break;
-      case (num < 60):
-        output = "F";
-        break;
-      default:
-        document.write("Invalid Entry");
-        break;
+    function printObjectProperties(userDetails) {
+      let val = Object.keys(userDetails).length;
+      if (val > 0) {
+        for (let prop in userDetails) {
+          console.log(`${prop} : ${userDetails[prop]}`);
+        }
+      } else {
+        console.log("Object is empty");
+      }
     }
-    document.write(output);
+
+
+
+    printObjectProperties(userDetails);
+
   </script>
 </body>
 
 </html>
+
+<!--  2. javascript function returns -->
+
+<script type="text/javascript">
+  const numbers1 = [10, 20, 5, 30, 25];
+
+  function findMaxNumber(numbers1) {
+    let maximum = numbers1[0];
+    if (numbers1.length === 0) {
+      return null;
+    } else {
+      for (let i = 1; i < numbers1.length; i++) {
+        if (numbers1[i] > maximum)
+          maximum = numbers1[i];
+      }
+      return maximum;
+    }
+  }
+
+  console.log(findMaxNumber(numbers1));
+
+</script>
+
+<!-- 3. javascript Spread Operator -->
+
+<script>
+  function mergeArrays(array1, array2) {
+    const merged = [...array1, ...array2];
+    return merged;
+  }
+
+  const arr1 = [1, 2, 3];
+
+
+  const arr2 = [4, 5, 6];
+
+  console.log(mergeArrays(arr1, arr2));
+</script>
+
+<!-- 4.  javascript arrow function  -->
+
+<script>
+  let calculateSquare = (num) => {
+    const squared = num * num;
+    return squared;
+  }
+
+
+
+  console.log(calculateSquare(5));
+</script>
+
+<!-- 5. javascript es6 map  -->
+
+<script>
+  const numbers = [1, 2, 3, 4, 5];
+
+  function doubleNumbers(numbers) {
+    return numbers.map((num) => {
+      return num * 2;
+
+    })
+  }
+
+  console.log(doubleNumbers(numbers));
+</script>
+
+<!-- 6. javascript es6 static keyword -->
+
+<script>
+  class MathUtility {
+    static multiply(x, y) {
+      return x * y;
+    }
+  }
+  console.log(MathUtility.multiply(5, 3));
+</script>
+
+<!-- 7. javascript es6 class inheritance -->
+
+<script>
+  class Animal {
+    constructor(name, sound) {
+      this.name = name;
+      this.sound = sound;
+    }
+    makeSound() {
+      console.log(this.sound);
+    }
+  }
+
+  class Dog extends Animal {
+    fetch() {
+      console.log("Fetching the ball!");
+    }
+  }
+  const animal = new Animal("Lion", "Roar");
+  animal.makeSound();
+  const dog = new Dog("Buddy", "Woof");
+
+  dog.makeSound();
+
+  dog.fetch(); 
+</script>
+
+<!-- 8. javascript es6 super keyword -->
+
+<script>
+  class Person {
+    constructor(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+    introduce() {
+      console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+    }
+  }
+
+  class Student extends Person {
+    constructor(name, age, major) {
+      super(name, age);
+      this.major = major;
+    }
+
+    introduce() {
+
+      console.log(`Hello, my name is ${this.name} and I am ${this.age} years old. I am majoring in ${this.major}`);
+    }
+
+
+  }
+
+  const person1 = new Person("John", 30);
+
+  person1.introduce();
+
+  const student1 = new Student("Alice", 20, "Computer Science");
+
+
+  student1.introduce();
+
+</script>
